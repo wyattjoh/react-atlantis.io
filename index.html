@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+
+    <!-- CSS -->
+    <link href='/assets/dist/components/components-font-awesome/css/font-awesome.min.css' rel='stylesheet'>
+    <link href='/assets/dist/components/foundation/css/foundation.css' rel='stylesheet'>
+    <link href='/assets/dist/css/style.css' rel='stylesheet'>
+
+    <title>Atlantis</title>
+</head>
+
+<body>
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1 ng-cloak><a href="#">Atlantis</a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="/"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li><a href="#" data-reveal-id="myModal">Setup</a></li>
+            </ul>
+        </section>
+    </nav>
+
+    <div class="top-row row">
+        <div class="large-12 columns" id="grid"></div>
+    </div>
+
+    <div id="myModal" class="reveal-modal" data-reveal>
+        <a ng-hide="listing.firstTime" class="close-reveal-modal">&#215;</a>
+        <div data-alert class="alert-box" ng-style="listing.randomStyle" ng-show="listing.firstTime">
+          Hmm, it seems you're not using the proper url's, here is how to set this up.
+        </div>
+
+        <h2>Setup Instructions</h2>
+
+        <p>Copy the following into your terminal to setup the urls:</p>
+        <code onclick="window.selectText(this)">sudo python -c "$(curl -fsSL http://{{ ::listing.host }}/script/script.py)"</code>
+
+        <a class="button" ng-href="http://{{ ::listing.config.url }}" ng-style="{ background: listing.getRandomColor(this) }">Refresh to reload</a>
+    </div>
+
+    <!-- JS -->
+    <!-- // <script type="text/javascript" src="/assets/components/react/react.min.js"></script>
+    // <script type="text/javascript" src="/assets/components/lodash/dist/lodash.min.js"></script>
+    // <script type="text/javascript" src="/assets/javascripts/app.js"></script>
+    //
+    // <script type="text/javascript" src="/assets/components/fastclick/lib/fastclick.js"></script>
+    // <script type="text/javascript" src="/assets/components/jquery/dist/jquery.min.js"></script>
+    // <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.js"></script>
+    // <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.topbar.js"></script>
+    // <script type="text/javascript" src="/assets/components/foundation/js/foundation/foundation.reveal.js"></script>
+    //
+    // <script type="text/javascript">
+    //     $(document).foundation();
+    // </script> -->
+
+    <script data-main="/assets/dist/js/app.js" src="/assets/dist/components/requirejs/require.js"></script>
+</body>
+</html>
